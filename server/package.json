@@ -1,0 +1,30 @@
+{
+  "name": "baseramp-project-manager",
+  "author": "William R. Lotherington,III, et. al.",
+  "email": "duke.lotherington@gmail.com",
+  "licence": "GPL3",
+  "version": "0.1.0",
+  "private": false,  
+  "devDependencies": {
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.17.1",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.2",
+    "sloc": "^0.2.1"
+  },
+  "scripts": {
+    "serve": "node ./bin/www",
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "coverage": "react-scripts test --coverage --verbose --watchAll=false  --ci --runInBand ",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  }
+}

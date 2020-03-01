@@ -3,8 +3,6 @@ const express = require('express');
 var cors = require('cors');
 const bodyParser = require('body-parser');
 
-const QuestionModel = require('./Model');
-
 const API_PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors());

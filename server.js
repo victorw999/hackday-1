@@ -1,21 +1,20 @@
 require('dotenv').config();
+
 const express = require('express');
-var cors = require('cors');
 const bodyParser = require('body-parser');
-const request = require('request')
+const request = require("request");
 
-const API_PORT = process.env.PORT || 3000;
+// Creates express app
 const app = express();
-app.use(cors());
-const router = express.Router();
+// The port used for Express server
+const PORT = 3000;
+// Starts server
+app.listen(process.env.PORT || PORT, function() {
+  console.log('Bot is listening on port ' + PORT);
+});
 
-
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
-// router.get('/get', (req, res) => {
-  
-// });
 
 app.post('/', (req, res) => {
   var data = {form: {
@@ -24,13 +23,21 @@ app.post('/', (req, res) => {
     text: "Hi! :wave: \n I'm your new bot."
   }};
   request.post('https://slack.com/api/chat.postMessage', data, function (error, response, body) {
-        // Sends welcome message
-        res.json();
-      });
+    // Sends welcome message
+    res.json();
   });
+});
 
-// append /api for our http requests
-app.use('/api', router);
+app.post('/sushi', (req, res) => {
+  var data = {form: {
+    token: process.env.SLACK_AUTH_TOKEN,
+    channel: "#general",
+    text: "NEW TEST! for /sushi "
+  }};
+  request.post('https://slack.com/api/chat.postMessage', data, function (error, response, body) {
+    // Sends welcome message
+    res.json();
+  });
+});
 
-// launch our backend into a port
-app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));
+

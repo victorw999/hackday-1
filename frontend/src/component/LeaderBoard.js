@@ -1,5 +1,4 @@
 import React from "react";
-import store from "../store/store";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import UserDetail from "./UserDetail";
